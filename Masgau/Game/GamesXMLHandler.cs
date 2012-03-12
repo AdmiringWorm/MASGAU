@@ -29,12 +29,18 @@ namespace MASGAU.Game
             if(!Directory.Exists(game_configs))
                 throw new MException("Trashy Talk, Yes?","Could not find game profiles folder",false);
 
-            FileInfo[] read_us;
+            List<FileInfo> read_us;
 	        DirectoryInfo read_me = new DirectoryInfo(game_configs);
 
-            read_us = read_me.GetFiles("*.xml");
+            read_us = new List<FileInfo>(read_me.GetFiles("*.xml"));
 
-            if(read_us.Length==0)
+            if(Core.portable_mode) {
+                FileInfo custom_xml = new FileInfo(Path.Combine("..","..","Data","custom.xml"));
+                if(custom_xml.Exists)
+                    read_us.Add(custom_xml);
+            }
+
+            if(read_us.Count==0)
                 throw new MException("What the heck?","There are no XML files in the Data folder.",false);
 
             int i = 1;
@@ -78,23 +84,23 @@ namespace MASGAU.Game
                     }
                     String name = element.GetAttribute("name");
                     GamePlatform platform;
-                    String country;
+                    String region;
 
                     if(element.HasAttribute("platform"))
                         platform = GameHandler.parseGamePlatform(element.GetAttribute("platform"));
                     else
                         platform = GamePlatform.Multiple;
 
-                    if(element.HasAttribute("country"))
-                        country = element.GetAttribute("country");
+                    if (element.HasAttribute("region"))
+                        region = element.GetAttribute("region");
                     else
-                        country = null;
+                        region = null;
 
                     bool deprecated = false;
                     if(element.HasAttribute("deprecated"))
                         deprecated = Boolean.Parse(element.GetAttribute("deprecated"));
 
-                    add_me = new GameXMLHolder(new GameID(name,platform,country, deprecated),element);
+                    add_me = new GameXMLHolder(new GameID(name,platform,region, deprecated),element);
 
                     game_profiles.Add(add_me);
                 }

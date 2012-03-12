@@ -12,6 +12,16 @@ namespace MASGAU.Location
     public abstract class ALocationsHandler: ILocationsHandler 
     {
         
+        public string getFolder(EnvironmentVariable ev, string path){
+            LocationPathHolder parse_me = new LocationPathHolder();
+            parse_me.path = path;
+            parse_me.rel_root = ev;
+            foreach(string user in this.getUsers(ev)) {
+                return this.getAbsoluteRoot(parse_me,user);
+            }
+            return this.getAbsoluteRoot(parse_me,null);
+        }	
+		
         protected Dictionary<HandlerType,ALocationHandler> handlers;
 
         public List<EnvironmentVariable> these_always_require_user_selection = 
@@ -45,6 +55,7 @@ namespace MASGAU.Location
 
         public void resetHandler(HandlerType type) {
             Type originalType = handlers[type].GetType();
+            handlers.Remove(type);
             handlers.Add(type, (ALocationHandler)Activator.CreateInstance(originalType));
         }
 
@@ -102,6 +113,14 @@ namespace MASGAU.Location
 
         public string getAbsolutePath(LocationPathHolder parse_me, string user) 
         {
+            if(parse_me.rel_root== EnvironmentVariable.AltSavePaths) {
+                List<DetectedLocationPathHolder> locs = interpretPath(parse_me.ToString());
+                if(locs.Count>0)
+                    parse_me = locs[0];
+                else
+                    return null;
+            }
+
             foreach(KeyValuePair<HandlerType,ALocationHandler>  handler in handlers) {
                 string result = handler.Value.getAbsolutePath(parse_me, user);
                 if(result!=null)

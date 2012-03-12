@@ -15,17 +15,11 @@ namespace MASGAU.Main
 {
     public class AMainProgramHandler<L> : AProgramHandler<L> where L : ALocationsHandler
     {
-        // The title of the program's window
-        public String program_title {
-            get {
-                return _program_title.ToString();
-            }
-        }
-
-        private StringBuilder _program_title = new StringBuilder("MASGAU v." + Core.version);
         public bool         disable_resize = false;
        
-        public AMainProgramHandler(RunWorkerCompletedEventHandler when_done, Interface new_iface): base(when_done, new_iface) {
+        public AMainProgramHandler(Interface new_iface): base(new_iface) {
+            _program_title.Append(" v." + Core.version);
+
             if (all_users_mode)
                 _program_title.Append(" - All Users Mode");
             else
@@ -66,12 +60,13 @@ namespace MASGAU.Main
         #region Methods for preparing data about the games
 
         public Dictionary<string,int> contributions;
-        
-        private void addContribution(string contributer) {
-            if(!contributions.ContainsKey(contributer))
-                contributions.Add(contributer,1);
+
+        private void addContribution(string contributor)
+        {
+            if (!contributions.ContainsKey(contributor))
+                contributions.Add(contributor, 1);
             else
-                contributions[contributer]++;
+                contributions[contributor]++;
         }
 
         #endregion

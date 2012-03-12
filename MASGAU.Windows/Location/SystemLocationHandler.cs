@@ -9,7 +9,7 @@ using System.Security.Principal;
 using System.Text;
 using MASGAU.Registry;
 using MASGAU.Location.Holders;
-
+using Translations;
 using Microsoft.Win32;
 
 namespace MASGAU.Location {
@@ -101,6 +101,8 @@ namespace MASGAU.Location {
                 platform_version = PlatformVersion.XP;
 	        else
                 platform_version = PlatformVersion.Vista;
+
+            global.setEvFolder(EnvironmentVariable.StartMenu, Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu));
 
             // Not really used
             //common_program_files = Environment.GetEnvironmentVariable("COMMONPROGRAMFILES");
@@ -227,7 +229,10 @@ namespace MASGAU.Location {
 
                 add_me.setEvFolder(EnvironmentVariable.AppData,user_key.getValue("AppData"));
 
-                DirectoryInfo flash_share = new DirectoryInfo(Path.Combine(add_me.getFolder(EnvironmentVariable.AppData),@"Macromedia\Flash Player\#SharedObjects"));
+                add_me.setEvFolder(EnvironmentVariable.Desktop, user_key.getValue("Desktop"));
+                add_me.setEvFolder(EnvironmentVariable.StartMenu, user_key.getValue("Start Menu"));
+
+                DirectoryInfo flash_share = new DirectoryInfo(Path.Combine(add_me.getFolder(EnvironmentVariable.AppData), @"Macromedia\Flash Player\#SharedObjects"));
                 if(flash_share.Exists) {
                     DirectoryInfo[] flash_users = flash_share.GetDirectories();
                     switch(flash_users.Length) {
@@ -411,7 +416,7 @@ namespace MASGAU.Location {
                             }
 						}
 					} catch (Exception e) {
-                        throw new MException("Error While Loading Registry Key", e.Message, e, false);
+                        throw new MException(Strings.get("RegistryKeyLoadError"), e.Message, e, false);
 					}
 				}
 			}
@@ -429,17 +434,22 @@ namespace MASGAU.Location {
         protected override List<DetectedLocationPathHolder> getPaths(LocationShortcutHolder get_me) {
             FileInfo the_shortcut;
             //StringBuilder start_menu;
-            String path;
 			List<DetectedLocationPathHolder> return_me = new List<DetectedLocationPathHolder>();
-		    the_shortcut = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.StartMenu),get_me.shortcut));
-		    if(!the_shortcut.Exists) {
-			    //start_menu = new StringBuilder(260);
-			    //SHGetSpecialFolderPath(IntPtr.Zero,start_menu,CSIDL_COMMON_STARTMENU,false);
-			    the_shortcut = new FileInfo(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonStartMenu),get_me.shortcut));
-		    }
-	
-		    
-            if(the_shortcut.Exists) {
+            String path;
+
+            List<string> paths = this.getPaths(get_me.ev);
+            the_shortcut = null;
+
+            foreach (string check_me in paths)
+            {
+                the_shortcut = new FileInfo(Path.Combine(check_me, get_me.path));
+                if (the_shortcut.Exists)
+                    break;
+            }
+
+            
+
+            if(the_shortcut!=null && the_shortcut.Exists) {
 			    IWshRuntimeLibrary.WshShell shell = new IWshRuntimeLibrary.WshShell();
 			    IWshRuntimeLibrary.IWshShortcut link = (IWshRuntimeLibrary.IWshShortcut)shell.CreateShortcut(the_shortcut.FullName);
 	

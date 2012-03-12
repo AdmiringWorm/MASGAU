@@ -101,6 +101,10 @@ namespace MASGAU.Game {
                     return EnvironmentVariable.UserDocuments;
                 case "flashshared":
                     return EnvironmentVariable.FlashShared;
+                case "startmenu":
+                    return EnvironmentVariable.StartMenu;
+                case "desktop":
+                    return EnvironmentVariable.Desktop;
             }
             throw new NotImplementedException("Unrecognized environment variable: " + parse_me);
         }
@@ -316,7 +320,7 @@ namespace MASGAU.Game {
                     case "restore_comment":
                         restore_comment = element.InnerText;
                         break;
-                    case "contributer":
+                    case "contributor":
                         contributors.Add(element.InnerText);
                         break;
 					case "require_detection":
@@ -336,23 +340,24 @@ namespace MASGAU.Game {
                         break;
                     case "location_shortcut":
                         LocationShortcutHolder new_shortcut_location = new LocationShortcutHolder();
-                        new_shortcut_location.shortcut = element.GetAttribute("shortcut");
+                        new_shortcut_location.ev = parseEnvironmentVariable(element.GetAttribute("environment_variable"));
+                        new_shortcut_location.path = element.GetAttribute("path");
                         location = new_shortcut_location;
                         break;
                     case "location_game":
                         LocationGameHolder new_game_location = new LocationGameHolder();
                         String new_game_name = element.GetAttribute("name");
                         GamePlatform new_game_platform;
-                        String new_game_country;
+                        String new_game_region;
                         if(element.HasAttribute("platform"))
                             new_game_platform = parseGamePlatform(element.GetAttribute("platform"));
                         else
                             new_game_platform = GamePlatform.Multiple;
-                        if(element.HasAttribute("country"))
-                            new_game_country = element.GetAttribute("country");
+                        if(element.HasAttribute("region"))
+                            new_game_region = element.GetAttribute("region");
                         else
-                            new_game_country = null;
-                        new_game_location.game = new GameID(new_game_name,new_game_platform,new_game_country);
+                            new_game_region = null;
+                        new_game_location.game = new GameID(new_game_name,new_game_platform,new_game_region);
                         location = new_game_location;
                         break;
                     case "location_path":
@@ -389,7 +394,7 @@ namespace MASGAU.Game {
                         }
                         break;
                     case "virtualstore":
-                        if(element.HasAttribute("override")&&element.GetAttribute("override")=="yes")
+                        if(element.HasAttribute("override")&&element.GetAttribute("override")=="true")
                             override_virtualstore = true;
                         else
                             override_virtualstore = false;
@@ -455,10 +460,10 @@ namespace MASGAU.Game {
                     else
                         location.append_path = null;
 
-                    if(element.HasAttribute("read_only"))
-                        location.read_only = true;
+                    if(element.HasAttribute("deprecated"))
+                        location.deprecated = true;
                     else
-                        location.read_only = false;
+                        location.deprecated = false;
 
                     if(element.HasAttribute("detract"))
                         location.detract_path = element.GetAttribute("detract");
