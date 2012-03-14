@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <games xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="games.xsd" majorVersion="1" minorVersion="1" date="2011-12-25T00:00:00">
   <!--This file contains games whose saves are only compatible with Steam releases of the game-->
+  <game name="AlanWake" platform="Steam">
+    <title>Alan Wake</title>
+    <location_path environment_variable="steamuserdata" path="108710" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="AlienSwarm" platform="Steam">
     <title>Alien Swarm</title>
     <location_path environment_variable="steamuserdata" path="630"/>
@@ -91,6 +97,12 @@
     <save/>
     <contributer>SanMadJack</contributer>
   </game>
+  <game name="JurassicParkTheGame" platform="Windows">
+		<title>Jurassic Park: The Game</title>
+		<location_path environment_variable="userdocuments" path="Telltale Games" />
+		<save path="jurassicpark"/>
+		<contributer>Arc Angel</contributer>
+	</game>
   <game name="JustCause2" platform="Steam">
     <title>Just Cause 2</title>
     <location_path environment_variable="steamuserdata" path="8190"/>
@@ -116,6 +128,12 @@
     <location_path environment_variable="steamuserdata" path="32460"/>
     <save/>
     <contributer>slake_jones</contributer>
+  </game>
+  <game name="PaydayTheHeist" platform="Steam">
+    <title>Payday: The Heist</title>
+    <location_path environment_variable="steamuserdata" path="24240\remote" />
+    <save />
+    <contributer>Arc Angel</contributer>
   </game>
   <game name="PoundOfGround" platform="Steam">
     <title>Pound of Ground</title>
@@ -158,6 +176,13 @@
     <location_path environment_variable="steamuserdata" path="41010\local\SeriousSamHD_TSE"/>
     <save/>
     <contributer>Arc Angel</contributer>
+  </game>
+  <game name="SeriousSam2" platform="Steam">
+    <title>Serious Sam 2</title>
+    <location_path environment_variable="steamcommon" path="serious sam 2\Content\SeriousSam2" />
+  <save path="PlayerProfiles"/>
+	<save filename="Sam2.ini"/>
+	<contributer>Arc Angel</contributer>
   </game>
   <game name="Shank" platform="Steam">
     <title>Shank</title>
