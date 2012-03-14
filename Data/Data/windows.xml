@@ -1099,6 +1099,14 @@
     <save path="save"/>
     <contributer>David Barbour</contributer>
   </game>
+  <game name="DarkVoid" platform="Windows">
+		<title>Dark Void</title>
+		<location_path environment_variable="userdocuments" path="My Games\Airtight\Dark Void" />
+		<save path="SavedGames"/>
+		<save path="SkyGame\Config"/>
+		<save filename="profile.dvp"/>
+		<contributer>Arc Angel</contributer>
+	</game>
   <game name="Darwinia" platform="Windows">
     <title>Darwinia</title>
     <location_path environment_variable="savedgames" path="Darwinia"/>
@@ -1971,12 +1979,11 @@
     <contributer>duncans_pumpkin</contributer>
   </game>
   <game name="GratuitousSpaceBattles" platform="Windows">
-    <title>Gratuitous Space Battles</title>
-    <location_path environment_variable="userdocuments" path="GratuitousSpaceBattles"/>
-    <save filename="*"/>
-    <save path="deployments"/>
-    <contributer>Arc Angel</contributer>
-  </game>
+		<title>Gratuitous Space Battles</title>
+		<location_path environment_variable="userdocuments" path="My Games\GratuitousSpaceBattles" />
+		<save />
+		<contributer>Arc Angel</contributer>
+	</game>
   <game name="Gravitron2" platform="Windows">
     <title>Gravitron 2</title>
     <location_path environment_variable="steamcommon" path="gravitron2"/>
@@ -2378,6 +2385,12 @@
     <contributer>Arc Angel</contributer>
     <contributer>SanMadJack</contributer>
   </game>
+  <game name="JurassicParkTheGame" platform="Windows">
+		<title>Jurassic Park: The Game</title>
+		<location_path environment_variable="userdocuments" path="Telltale Games" />
+		<save path="jurassicpark"/>
+		<contributer>Arc Angel</contributer>
+	</game>
   <game name="JustCause" platform="Windows">
     <title>Just Cause</title>
     <location_path environment_variable="userdocuments" path="JustCause"/>
@@ -2533,6 +2546,13 @@
     <save path="BIOGame\Profile"/>
     <save path="Save"/>
     <contributer>Christian Hamann</contributer>
+  </game>
+  <game name="MassEffect3" platform="Windows">
+    <title>Mass Effect 3</title>
+    <location_path environment_variable="userdocuments" path="BioWare\Mass Effect 3" />
+    <save path="BIOGame\Config" type="Settings" />
+    <save path="Save" />
+    <contributer>Arc Angel</contributer>
   </game>
   <game name="MasterOfOrion2" platform="Windows">
     <title>Master of Orion 2: Battle at Antares</title>
@@ -3500,6 +3520,12 @@
     <save path="Saves" filename="*.sav"/>
     <contributer>Arc Angel</contributer>
   </game>
+  <game name="ResidentEvil5" platform="Windows">
+		<title>Resident Evil 5</title>
+		<location_path environment_variable="userdocuments" path="CAPCOM\RESIDENT EVIL 5" />
+		<save />
+		<contributer>Arc Angel</contributer>
+	</game>
   <game name="ReturnOfTheIncredibleMachineContraptions" platform="Windows">
     <title>Return of the Incredible Machine: Contraptions</title>
     <location_path environment_variable="installlocation" path="GOG.com\The Incredible Machine Series\Return of the Incredible Machine Contraptions"/>
@@ -4312,6 +4338,12 @@
     <save/>
     <contributer>SanMadJack</contributer>
   </game>
+  <game name="Syndicate2012" platform="Windows">
+		<title>Syndicate (2012)</title>
+		<location_path environment_variable="userdocuments" path="Syndicate" />
+		<save />
+		<contributer>Arc Angel</contributer>
+	</game>
   <game name="SystemShock2" platform="Windows">
     <title>System Shock 2</title>
     <location_registry root="local_machine" key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\shock2.exe" value="Path"/>
@@ -4445,6 +4477,7 @@
     <title>Thief: Deadly Shadows</title>
     <location_path environment_variable="public" path="Documents\Thief - Deadly Shadows" platform_version="Vista"/>
     <location_path environment_variable="allusersprofile" path="Documents\Thief - Deadly Shadows" platform_version="XP"/>
+  	<location_path environment_variable="steamcommon" path="thief deadly shadows\save" />
     <save path="SaveGames"/>
     <contributer>SanMadJack</contributer>
   </game>
@@ -4639,6 +4672,12 @@
     <save filename="TrueCrime.ini" type="Settings"/>
     <contributer>SanMadJack</contributer>
   </game>
+  <game name="Turok2008" platform="Windows">
+		<title>Turok (2008)</title>
+		<location_path environment_variable="appdata" path="Touchstone\Turok" />
+		<save />
+		<contributer>Arc Angel</contributer>
+	</game>
   <game name="TwinSector" platform="Windows">
     <title>Twin Sector</title>
     <location_path environment_variable="userdocuments" path="TwinSector"/>
