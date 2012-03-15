@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <games xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="games.xsd" majorVersion="1" minorVersion="1" date="2011-12-25T00:00:00">
   <!--This file contains games whose saves are only compatible with Steam releases of the game-->
+  <game name="AlanWake" platform="Steam">
+    <title>Alan Wake</title>
+    <location_path environment_variable="steamuserdata" path="108710" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="AlienSwarm" platform="Steam">
     <title>Alien Swarm</title>
     <location_path environment_variable="steamuserdata" path="630"/>
     <save/>
     <contributer>AvvA</contributer>
   </game>
+  <game name="AnomalyWarzoneEarth" platform="Steam">
+    <title>Anomaly Warzone Earth</title>
+    <location_path environment_variable="steamuserdata" path="91200" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="Bastion" platform="Steam">
     <title>Bastion</title>
     <location_path environment_variable="steamuserdata" path="107100"/>
     <save/>
+    <contributer>Arc Angel</contributer>
+  </game>
+  <game name="BlackwellLegacy" platform="Steam">
+    <title>Blackwell Trilogy Remastered: 1 - The Blackwell Legacy</title>
+    <location_path environment_variable="steamcommon" path="blackwell legacy" />
+    <save path="Saves"/>
+    <contributer>Arc Angel</contributer>
+  </game>
+  <game name="BlackwellUnbound" platform="Steam">
+    <title>Blackwell Trilogy Remastered: 2 - Blackwell Unbound</title>
+    <location_path environment_variable="steamcommon" path="blackwell unbound" />
+	  <save path="Saves"/>
+    <contributer>Arc Angel</contributer>
+  </game>
+  <game name="BlackwellConvergence" platform="Steam">
+    <title>Blackwell Trilogy Remastered: 3 - Blackwell Convergence</title>
+    <location_path environment_variable="steamcommon" path="blackwell convergence" />
+	  <save path="Saves"/>
     <contributer>Arc Angel</contributer>
   </game>
   <game name="Braid" platform="Steam">
@@ -23,6 +53,12 @@
     <title>Brink</title>
     <location_path environment_variable="steamuserdata" path="22350"/>
     <save/>
+    <contributer>Arc Angel</contributer>
+  </game>
+  <game name="CallOfJuarezTheCartel" platform="Steam">
+    <title>Call of Juarez: The Cartel</title>
+    <location_path environment_variable="steamuserdata" path="33420\remote\out" />
+    <save />
     <contributer>Arc Angel</contributer>
   </game>
   <game name="Civilization5" platform="Steam">
@@ -97,6 +133,12 @@
     <save/>
     <contributer>Arc Angel</contributer>
   </game>
+  <game name="KoAReckoning" platform="Steam">
+    <title>Kingdoms of Amalur: Reckoning</title>
+    <location_path environment_variable="steamuserdata" path="102500" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="LaraCroftAndTheGuardianOfLight" platform="Steam">
     <title>Lara Croft and the Guardian of Light</title>
     <location_path environment_variable="steamuserdata" path="35130" read_only="true"/>
@@ -116,6 +158,12 @@
     <location_path environment_variable="steamuserdata" path="32460"/>
     <save/>
     <contributer>slake_jones</contributer>
+  </game>
+  <game name="PaydayTheHeist" platform="Steam">
+    <title>Payday: The Heist</title>
+    <location_path environment_variable="steamuserdata" path="24240\remote" />
+    <save />
+    <contributer>Arc Angel</contributer>
   </game>
   <game name="PoundOfGround" platform="Steam">
     <title>Pound of Ground</title>
@@ -159,10 +207,29 @@
     <save/>
     <contributer>Arc Angel</contributer>
   </game>
+  <game name="SeriousSam2" platform="Steam">
+    <title>Serious Sam 2</title>
+    <location_path environment_variable="steamcommon" path="serious sam 2\Content\SeriousSam2" />
+    <save path="PlayerProfiles"/>
+	  <save filename="Sam2.ini"/>
+	  <contributer>Arc Angel</contributer>
+  </game>
+  <game name="SeriousSam3BFE" platform="Steam">
+    <title>Serious Sam 3: BFE</title>
+    <location_path environment_variable="steamuserdata" path="41070\local" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="Shank" platform="Steam">
     <title>Shank</title>
     <location_path environment_variable="steamuserdata" path="6120"/>
     <save/>
+    <contributer>Arc Angel</contributer>
+  </game>
+  <game name="Shank2" platform="Steam">
+    <title>Shank 2</title>
+    <location_path environment_variable="steamuserdata" path="102840" />
+    <save />
     <contributer>Arc Angel</contributer>
   </game>
   <game name="Trine" platform="Steam">
@@ -170,5 +237,17 @@
     <location_path environment_variable="steamuserdata" path="35700"/>
     <save/>
     <contributer>SanMadJack</contributer>
+  </game>
+  <game name="Warhammer40kSpaceMarine" platform="Steam">
+    <title>Warhammer 40,000: Space Marine</title>
+    <location_path environment_variable="steamuserdata" path="55150\remote" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
+  <game name="WhisperedWorld" platform="Steam">
+    <title>The Whispered World</title>
+    <location_path environment_variable="steamcommon" path="whispered world" />
+    <save path="savegames"/>
+    <contributer>Arc Angel</contributer>
   </game>
 </games>
