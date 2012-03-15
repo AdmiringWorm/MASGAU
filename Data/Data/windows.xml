@@ -33,12 +33,12 @@
     <contributer>SanMadJack</contributer>
   </game>
   <game name="AfterfallInsanity" platform="Windows">
-  	<title>Afterfall: Insanity</title>
-		<location_path environment_variable="userdocuments" path="My Games\Afterfall InSanity" />
-		<save path="Binaries\SaveData"/>
-		<save path="RascalGame"/>
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Afterfall: Insanity</title>
+    <location_path environment_variable="userdocuments" path="My Games\Afterfall InSanity" />
+    <save path="Binaries\SaveData"/>
+    <save path="RascalGame"/>
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="AgeOfEmpires2" platform="Windows">
     <title>Age of Empires II</title>
     <location_path environment_variable="installlocation" path="Microsoft Games\Age of Empires II"/>
@@ -1119,13 +1119,13 @@
     <contributer>David Barbour</contributer>
   </game>
   <game name="DarkVoid" platform="Windows">
-		<title>Dark Void</title>
-		<location_path environment_variable="userdocuments" path="My Games\Airtight\Dark Void" />
-		<save path="SavedGames"/>
-		<save path="SkyGame\Config"/>
-		<save filename="profile.dvp"/>
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Dark Void</title>
+    <location_path environment_variable="userdocuments" path="My Games\Airtight\Dark Void" />
+    <save path="SavedGames"/>
+    <save path="SkyGame\Config"/>
+    <save filename="profile.dvp"/>
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="Darwinia" platform="Windows">
     <title>Darwinia</title>
     <location_path environment_variable="savedgames" path="Darwinia"/>
@@ -1166,11 +1166,11 @@
     <contributer>AdmiringWorm</contributer>
   </game>
   <game name="DepthHunter" platform="Windows">
-		<title>Depth Hunter</title>
-		<location_path environment_variable="userdocuments" path="DepthHunter" />
-		<save />
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Depth Hunter</title>
+    <location_path environment_variable="userdocuments" path="DepthHunter" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="Descent2" platform="Windows">
     <title>Descent II</title>
     <location_path environment_variable="installlocation" path="GAMES\DESCENT2"/>
@@ -1294,12 +1294,12 @@
     <contributer>Arc Angel</contributer>
   </game>
   <game name="DnDDaggerdale" platform="Windows">
-		<title>Dungeons &amp; Dragons: Daggerdale</title>
-		<location_path environment_variable="userdocuments" path="My Games\Daggerdale\DnDGame" />
-		<save path="Config"/>
-		<save path="SaveData"/>
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Dungeons &amp; Dragons: Daggerdale</title>
+    <location_path environment_variable="userdocuments" path="My Games\Daggerdale\DnDGame" />
+    <save path="Config"/>
+    <save path="SaveData"/>
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="DocClockTheToastedSandwichOfTime" platform="Windows">
     <title>Doc Clock: The Toasted Sandwich of Time (Settings)</title>
     <location_path environment_variable="appdata" path="DocClockGame"/>
@@ -1364,11 +1364,11 @@
     <contributer>SanMadJack</contributer>
   </game>
   <game name="Dreamkiller" platform="Windows">
-		<title>Dreamkiller</title>
-		<location_path environment_variable="userdocuments" path="Aspyr\Dreamkiller" />
-		<save />
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Dreamkiller</title>
+    <location_path environment_variable="userdocuments" path="Aspyr\Dreamkiller" />
+    <save />
+    <contributer>Arc Angel</contributer>
+    </game>
   <game name="DriverParallelLines" platform="Windows">
     <title>Driver: Parallel Lines</title>
     <location_path environment_variable="userdocuments" path="My Games\Driver Parallel Lines"/>
@@ -1412,11 +1412,11 @@
     <contributer>Arc Angel</contributer>
   </game>
   <game name="DungeonSiegeIII" platform="Windows">
-		<title>Dungeon Siege III</title>
-		<location_path environment_variable="userdocuments" path="My Games\Dungeon Siege III" />
-		<save />
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Dungeon Siege III</title>
+    <location_path environment_variable="userdocuments" path="My Games\Dungeon Siege III" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="Earth2140" platform="Windows">
     <title>Earth 2140</title>
     <location_path environment_variable="installlocation" path="GOG.com\Earth 2140"/>
@@ -2329,12 +2329,12 @@
     <contributer>SanMadJack</contributer>
   </game>
   <game name="HuntedTheDemonsForge" platform="Windows">
-		<title>Hunted: The Demon's Forge</title>
-		<location_path environment_variable="userdocuments" path="My Games\Hunted" />
-		<save path="DFGame\Config"/>
-		<save path="DFGame\SaveData"/>
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Hunted: The Demon's Forge</title>
+    <location_path environment_variable="userdocuments" path="My Games\Hunted" />
+    <save path="DFGame\Config"/>
+    <save path="DFGame\SaveData"/>
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="IFluid" platform="Windows">
     <title>I-Fluid</title>
     <location_path environment_variable="steamcommon" path="i-fluid"/>
@@ -2465,11 +2465,11 @@
     <contributer>SanMadJack</contributer>
   </game>
   <game name="JurassicParkTheGame" platform="Windows">
-		<title>Jurassic Park: The Game</title>
-		<location_path environment_variable="userdocuments" path="Telltale Games" />
-		<save path="jurassicpark"/>
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Jurassic Park: The Game</title>
+    <location_path environment_variable="userdocuments" path="Telltale Games" />
+    <save path="jurassicpark"/>
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="JustCause" platform="Windows">
     <title>Just Cause</title>
     <location_path environment_variable="userdocuments" path="JustCause"/>
@@ -3424,11 +3424,11 @@
     <contributer>SanMadJack</contributer>
   </game>
   <game name="ProjectBlackSun" platform="Windows">
-		<title>Project Black Sun</title>
-		<location_path environment_variable="userdocuments" path="ProjectBlackSun" />
-		<save />
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Project Black Sun</title>
+    <location_path environment_variable="userdocuments" path="ProjectBlackSun" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="Prototype" platform="Windows">
     <title>Prototype</title>
     <location_path environment_variable="userdocuments" path="Prototype"/>
@@ -3612,11 +3612,11 @@
     <contributer>Arc Angel</contributer>
   </game>
   <game name="ResidentEvil5" platform="Windows">
-		<title>Resident Evil 5</title>
-		<location_path environment_variable="userdocuments" path="CAPCOM\RESIDENT EVIL 5" />
-		<save />
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Resident Evil 5</title>
+    <location_path environment_variable="userdocuments" path="CAPCOM\RESIDENT EVIL 5" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="ReturnOfTheIncredibleMachineContraptions" platform="Windows">
     <title>Return of the Incredible Machine: Contraptions</title>
     <location_path environment_variable="installlocation" path="GOG.com\The Incredible Machine Series\Return of the Incredible Machine Contraptions"/>
@@ -4430,11 +4430,11 @@
     <contributer>SanMadJack</contributer>
   </game>
   <game name="Syndicate2012" platform="Windows">
-		<title>Syndicate (2012)</title>
-		<location_path environment_variable="userdocuments" path="Syndicate" />
-		<save />
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Syndicate (2012)</title>
+    <location_path environment_variable="userdocuments" path="Syndicate" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="SystemShock2" platform="Windows">
     <title>System Shock 2</title>
     <location_registry root="local_machine" key="SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\shock2.exe" value="Path"/>
@@ -4568,7 +4568,7 @@
     <title>Thief: Deadly Shadows</title>
     <location_path environment_variable="public" path="Documents\Thief - Deadly Shadows" platform_version="Vista"/>
     <location_path environment_variable="allusersprofile" path="Documents\Thief - Deadly Shadows" platform_version="XP"/>
-  	<location_path environment_variable="steamcommon" path="thief deadly shadows\save" />
+    <location_path environment_variable="steamcommon" path="thief deadly shadows\save" />
     <save path="SaveGames"/>
     <contributer>SanMadJack</contributer>
   </game>
@@ -4764,11 +4764,11 @@
     <contributer>SanMadJack</contributer>
   </game>
   <game name="Turok2008" platform="Windows">
-		<title>Turok (2008)</title>
-		<location_path environment_variable="appdata" path="Touchstone\Turok" />
-		<save />
-		<contributer>Arc Angel</contributer>
-	</game>
+    <title>Turok (2008)</title>
+    <location_path environment_variable="appdata" path="Touchstone\Turok" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="TwinSector" platform="Windows">
     <title>Twin Sector</title>
     <location_path environment_variable="userdocuments" path="TwinSector"/>
