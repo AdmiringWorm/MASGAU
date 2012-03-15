@@ -55,6 +55,12 @@
     <save/>
     <contributer>Arc Angel</contributer>
   </game>
+  <game name="CallOfDutyModernWarfare3" platform="Steam">
+    <title>Call of Duty: Modern Warfare 3</title>
+    <location_path environment_variable="steamcommon" path="call of duty modern warfare 3" />
+    <save path="players2" />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="CallOfJuarezTheCartel" platform="Steam">
     <title>Call of Juarez: The Cartel</title>
     <location_path environment_variable="steamuserdata" path="33420\remote\out" />
