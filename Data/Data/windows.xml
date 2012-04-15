@@ -385,6 +385,14 @@
     <restore_comment>Restoring saves for this game also requires restoring Game for Windows Account Data, which MASGAU automatically backs up in G4WAccountData.</restore_comment>
     <contributer>Michael Lamere</contributer>
   </game>
+  <game name="BattleArmorDivision" platform="Windows">
+    <title>B.A.D - Battle Armor Division</title>
+    <location_path environment_variable="installlocation" path="B.A.D Battle Armor Division" />
+    <location_shortcut shortcut="Programs\B.A.D Battle Armor Division\BAD Battle Armor Division.lnk"/>
+    <save filename="*.sav" />
+    <save filename="*.ini" />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="Battlefield3" platform="Windows">
     <title>Battlefield 3</title>
     <location_path environment_variable="userdocuments" path="Battlefield 3"/>
@@ -496,6 +504,12 @@
     <title>Blacklight: Tango Down</title>
     <location_path environment_variable="userdocuments" path="My Games\Blacklight-Tango Down"/>
     <save path="FOXGame\Config"/>
+    <contributer>Arc Angel</contributer>
+  </game>
+  <game name="BlackMarket" platform="Windows">
+    <title>Black Market</title>
+    <location_registry root="local_machine" key="SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Black Market_is1" value="InstallLocation" />
+    <save filename="save.dat"/>
     <contributer>Arc Angel</contributer>
   </game>
   <game name="BlackMirror2" platform="Windows">
@@ -1164,6 +1178,12 @@
     <save path="Profile*"/>
     <save path="Config" type="Settings"/>
     <contributer>AdmiringWorm</contributer>
+  </game>
+  <game name="DeepBlackReloaded" platform="Windows">
+    <title>Deep Black: Reloaded</title>
+    <location_path environment_variable="userdocuments" path="DeepBlackReloaded" />
+    <save />
+    <contributer>Arc Angel</contributer>
   </game>
   <game name="DepthHunter" platform="Windows">
     <title>Depth Hunter</title>
@@ -2518,6 +2538,12 @@
     <title>The Last Remnant</title>
     <location_path environment_variable="userdocuments" path="My Games\The last remnant"/>
     <save/>
+    <contributer>Arc Angel</contributer>
+  </game>
+  <game name="LegendsofGrimrock" platform="Windows">
+    <title>Legends of Grimrock</title>
+    <location_path environment_variable="userdocuments" path="Almost Human\Legend of Grimrock" />
+    <save />
     <contributer>Arc Angel</contributer>
   </game>
   <game name="Legendary" platform="Windows">
