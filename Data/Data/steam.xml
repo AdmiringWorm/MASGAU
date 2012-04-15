@@ -244,6 +244,12 @@
     <save/>
     <contributer>SanMadJack</contributer>
   </game>
+  <game name="Trine2" platform="Steam">
+    <title>Trine 2</title>
+    <location_path environment_variable="steamuserdata" path="35720" />
+    <save />
+    <contributer>Arc Angel</contributer>
+  </game>
   <game name="Warhammer40kSpaceMarine" platform="Steam">
     <title>Warhammer 40,000: Space Marine</title>
     <location_path environment_variable="steamuserdata" path="55150\remote" />
