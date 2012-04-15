@@ -97,11 +97,13 @@ New Windows Games
 * Aquanox 2: Revelation
 * Aquaria - Contributed by Dwight Holman
 * Arcanum: Of Steamworks and Migick Obscura - GoG only
-* ArmA: Combat Operations - Contributed by arc Angel
+* ArmA: Combat Operations - Contributed by Arc Angel
 * The Ball - Contributed by Arc Angel
-* Battlefield: Bad Company 2 - Contributed by arc Angel
+* B.A.D - Battle Armor Division - Contributed by Arc Angel
+* Battlefield: Bad Company 2 - Contributed by Arc Angel
 * Beneath a Steel Sky - GoG only
 * Bioshock 2 - Contributed by H?rd Kr??
+* Black Market - Contributed by Arc Angel
 * Black Mirror 2 - Contributed by Arc Angel
 * Blacklight: Tango Down - Contributed by Arc Angel
 * Blood II: The Chosen - GoG only
@@ -140,6 +142,7 @@ New Windows Games
 * Darkstar One - GoG only
 * Dead Space - Contributed by Arc Angel
 * Death to Spies: Moment of Truth - Contributed by Arc Angel
+* Deep Black: Reloaded - Contributed by Arc Angel
 * Deus - GoG only
 * Diablo - Contributed by Mark Barbour
 * Diablo: Hellfire - Contributed by Mark Barbour
@@ -184,6 +187,7 @@ New Windows Games
 * King's Bounty: The Legend - Contributed by Arc Angel
 * Lara Croft and the Guardian of Light - Contribute by Arc Angel
 * The Last Remnant - Contributed by Arc Angel
+* Legends of Grimrock - Contributed by Arc Angel
 * Legendary - Contributed by Arc Angel
 * Lost Planet: Colonies - contributed by Caleb Love
 * Lure of the Temptress - GoG only
@@ -261,6 +265,7 @@ New Windows Games
 * Supreme Commander - Contributed by duncans_pumpkin
 * Supreme Commander: Forged Alliance - Contributed by duncans_pumpkin
 * Trine - Steam Cloud only
+* Trine 2 - Steam Cloud only - Contributed by Arc Angel
 * Tales of Monkey Island Chapter 5: Rise of the Pirate God
 * Tank Universal - Steam Only - Contributed by Arc Angel
 * Tex Murphy: Overseer - GoG only
