@@ -1396,6 +1396,12 @@
     <save filename="*.DPLSave"/>
     <contributer>AdmiringWorm</contributer>
   </game>
+  <game name="DriverSanFrancisco" platform="Windows">
+		<title>Driver San Francisco</title>
+		<location_path environment_variable="userdocuments" path="Ubisoft\Driver San Francisco" />
+		<save />
+		<contributer>Arc Angel</contributer>
+	</game>
   <game name="DrugWarsMerchantsOfBrooklyn" platform="Windows">
     <title>Drug Wars: Merchants of Brooklyn</title>
     <location_path environment_variable="userdocuments" path="My Games\MOB"/>
