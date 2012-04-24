@@ -147,6 +147,7 @@ New Windows Games
 * Diablo - Contributed by Mark Barbour
 * Diablo: Hellfire - Contributed by Mark Barbour
 * DiRT - Steam only - Contributed by Arc Angel
+* Driver San Francisco - Contributed by Arc Angel
 * Dungeon Keeper
 * Earth 2140 - GoG only
 * Earth 2150 - GoG only
