@@ -72,39 +72,55 @@ New Windows Games:
 * Contributed by Arc Angel
 * 25 to Life
 * James Cameron's Avatar: The Game
+* Afterfall: Insanity
+* Alan Wake - Steam Only
 * Alice - Madness Returns
 * Alien Breed 3: Descent
+* Anomaly Warzone Earth - Steam Only
 * A.R.E.S
 * ArmA 2
 * Armed Forces Corps
 * Assassin's Creed: Brotherhood - Vista/7 only
 * Atom Zombie Smasher
+* Avadon: The Black Fortress
 * Avencast: Rise of the Mage
 * Bastion - Steam only
 * Battle: Los Angeles
 * Battlefield 3
 * Bet on Soldier: Blood Sport
+* Blackwell Convergence - Steam Only
+* Blackwell Legacy - Steam Only
+* Blackwell Unbound - Steam Only
 * Breath of Death VII: The Beginning
 * Brink - Steam only
 * Bulletstorm
+* Call of Duty 3 - Steam only
+* Call of Juarez: The Cartel - Steam Only
 * Capsized - Steam only
 * Clutch
 * Crysis 2 - Vista/7 only
 * Cthulhu Saves The World
 * Cursed Mountain
 * Daikatana
+* Dark Void
 * Darkness Within
+* The Darkness II
 * Dead Island - Steam only
 * Dead Rising 2
 * Dead Space 2
-* Defense Grid: The Awakening
+* Defense Grid: The Awakening - Steam Only
+* Depth Hunter
 * Desperados 2: Cooper's Revenge
 * DiRT 3
 * Disciples III: Renaissance
 * Downfall - Vista/7 only
+* Dragon Age 2
+* Dreamkiller
 * Drug Wars: Merchants of Brooklyn
 * Duke Nukem Forever - Steam only
 * Dungeons of Dredmor
+* Dungeons & Dragons: Daggerdale
+* Dungeon Siege III
 * The Elder Scrolls V: Skyrim
 * E.Y.E: Divine Cybermancy - Steam only
 * Far Cry 2
@@ -114,29 +130,38 @@ New Windows Games:
 * Garshasp: The Monster Slayer
 * Gemini Rue - Steam only
 * Ghostbusters
+* Grotesque Tactics 2
 * Tom Clancy's Ghost Recon - Steam only
 * Tom Clancy's Ghost Recon: Desert Siege - Steam only
 * Tom Clancy's Ghost Recon: Island Thunder - Steam only
 * Tom Clancy's Ghost Recon: Advance Warfighter - Steam only
 * Tom Clancy's Ghost Recon: Advance Warfighter 2
 * The Godfather
+* Turok (2008)
 * Greed: Black Border - Steam only
 * Grotesque Tactics: Evil Heroes
 * GUN
 * Gun Metal
 * Gyromancer
+* Hard Reset
 * Hellforces
+* Hunted: The Demon's Forge
 * I-Fluid
+* Insecticide: Part 1
 * Jamestown
+* Jurassic Park: The Game
 * King Arthur
+* Kingdoms of Amalur: Reckoning - Steam Only
 * Kaptain Brawe: A Brawe New World
 * L.A . Noire
 * Limbo - Steam only
 * Manhunt
 * Manhunt 2
 * Mark Leung: Revenge of the Bitch
+* Mass Effect 3
 * Mini Ninjas - Vista/7 only
 * Mortyr 2093-1944
+* Naval Warfare
 * Need for Speed: Hot Pursuit
 * Need for Speed: Shift
 * Neuro Hunter
@@ -145,11 +170,14 @@ New Windows Games:
 * Operation Flashpoint: Red River
 * Painkiller: Redemption
 * Pathologic
+* Payday: The Heist - Steam Only
 * Precursors
+* Project Black Sun
 * Prototype
 * Puzzle Quest 2
 * Rage - Windows 7/Vista only
 * Renegade Ops
+* Resident Evil 5
 * Tom Clancy's Rainbow Six 3: Raven Shield
 * Tom Clancy's Rainbow Six 3: Athena Sword
 * Tom Clancy's Rainbow Six: Lockdown
@@ -163,9 +191,13 @@ New Windows Games:
 * Scorpion: Disfigured
 * Section 8
 * Section 8: Prejudice
+* Serious Sam 2 - Steam Only
+* Serious Sam 3 BFE - Steam Only
 * Shadow Harvest: Phantom Ops
+* Shank 2
 * Shellshock 2
 * Snajper
+* Warhammer 40,000: Space Marine - Steam Only
 * Spellforce: The Order of the Dawn
 * Spellforce 2: Shadow Wars
 * Spider-Man: Web of Shadows
@@ -173,6 +205,7 @@ New Windows Games:
 * Steel Storm: Burning Retribution
 * Stubbs the Zombie: Rebel Without a Pulse
 * Swords and Soldiers HD
+* Syndicate (2012)
 * Tarr Chronicles
 * TECNO: the Base
 * Terminator: Salvation
@@ -185,13 +218,17 @@ New Windows Games:
 * Trapped Dead
 * Trials 2: Second Edition
 * Two Worlds II - Vista/7 only
+* Venus Hostage
 * Vigil: Blood Bitterness
 * Vivisector: Beast Within
 * Wanted: Weapons of Fate
 * Watchmen: The End is Nigh - Part 1 & 2 - Steam only
+* The Whispered World - Steam Only
 * The Witcher 2: Assassin of Kings
+* Wolfenstein (2009)
 * Wolfschanze II
 * X-Men Origins: Wolverine
+* X3: Albion Prelude
 * Xenus 2: White Gold
 * Zombie Driver
 * Zombie Shooter
@@ -298,6 +335,7 @@ New Mods:
 * Titan: XCIX - Part 1 - Contributed by Arc Angel
 
 Updated Windows Games:
+* Thief Deadly Shadows - Added Steam info - Contributed by Arc Angel
 * Advent Rising - Added GoG info
 * Sid Meier's Alpha Centauri - Added GoG info
 * Dreamfall: The Longest Journey - Added new install location - Contributed by Arc Angel
