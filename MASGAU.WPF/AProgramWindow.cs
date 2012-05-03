@@ -12,7 +12,7 @@ namespace MASGAU
 
         public AProgramWindow() {}
 
-        protected AProgramWindow(AProgramHandler<Location.LocationsHandler>  program_handler, AWindow parent): base(parent) {
+        protected AProgramWindow(AProgramHandler<Location.LocationsHandler> program_handler, AWindow parent): base(parent) {
             this.program_handler = program_handler;
             this.Loaded += new System.Windows.RoutedEventHandler(WindowLoaded);
             if(program_handler!=null)
@@ -41,7 +41,7 @@ namespace MASGAU
             if(!Core.initialized) {
                 this.enableInterface();
                 this.Close();
-                throw new MException(Strings.get("Error"),Strings.get("SettingsLoadError"),false);
+                throw new CommunicatableException(Strings.get("Error"),Strings.get("SettingsLoadError"),false);
             }
             this.Title = program_handler.program_title;
         }

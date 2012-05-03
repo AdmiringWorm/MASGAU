@@ -1,5 +1,5 @@
 #define MyAppName "MASGAU"
-#define MyAppVersion "0.9.1"
+#define MyAppVersion "0.10.0"
 #define MyAppPublisher "Matthew Barbour"
 #define MyAppURL "http://masgau.org/"
 
@@ -18,10 +18,10 @@ SolidCompression=true
 OutputBaseFilename={#MyAppName}-{#MyAppVersion}-Setup
 AppCopyright=2012
 ChangesAssociations=true
-WizardImageFile=..\Graphics\installer_logo.bmp
-WizardSmallImageFile=..\Graphics\installer_logo_small.bmp
+WizardImageFile=installer_logo.bmp
+WizardSmallImageFile=installer_logo_small.bmp
 WizardImageStretch=true
-SetupIconFile=..\Graphics\masgau.ico
+SetupIconFile=..\MASGAU\masgau.ico
 AllowRootDirectory=true
 DirExistsWarning=no
 VersionInfoVersion={#MyAppVersion}
@@ -44,7 +44,7 @@ Source: ..\Dependencies\7-Zip\7z64.dll; DestDir: {app}; DestName: 7z.dll; Check:
 Source: ..\MASGAU.Updater\updates.xml; DestDir: {app};  Components: MASGAU\Core;
 Source: ..\Docs\gpl-2.0.txt; DestDir: {app}; Components: MASGAU\Core;
 Source: ..\Data\Data\games.xsd; DestDir: {app}\Data; Components: MASGAU\Core; 
-Source: ..\Graphics\masgau.ico; DestDir: {app};  Components: MASGAU\Core;
+Source: ..\MASGAU\masgau.ico; DestDir: {app};  Components: MASGAU\Core;
 // Main DLLs
 Source: ..\MASGAU\bin\Release\MASGAU.dll; DestDir: {app}; Components: MASGAU\Core; Flags: IgnoreVersion overwritereadonly replacesameversion; 
 Source: ..\MASGAU\bin\Release\MASGAU.pdb; DestDir: {app}; Components: MASGAU\Debug; Flags: IgnoreVersion overwritereadonly replacesameversion; 
@@ -167,11 +167,11 @@ var
   dotNetNeeded: boolean;
   memoDependenciesNeeded: string;
 
-procedure isxdl_AddFile(URL, Filename: PChar);
+procedure isxdl_AddFile(URL, Filename: PAnsiChar);
 external 'isxdl_AddFile@files:isxdl.dll stdcall';
 function isxdl_DownloadFiles(hWnd: Integer): Integer;
 external 'isxdl_DownloadFiles@files:isxdl.dll stdcall';
-function isxdl_SetOption(Option, Value: PChar): Integer;
+function isxdl_SetOption(Option, Value: PAnsiChar): Integer;
 external 'isxdl_SetOption@files:isxdl.dll stdcall';
 
 
@@ -215,6 +215,7 @@ function NextButtonClick(CurPage: Integer): Boolean;
 var
   hWnd: Integer;
   ResultCode: Integer;
+  Pars: String;
 
 begin
   Result := true;
@@ -231,7 +232,9 @@ begin
       if isxdl_DownloadFiles(hWnd) = 0 then Result := false;
     end;
     if (Result = true) and (dotNetNeeded = true) then begin
-      if Exec(ExpandConstant(dotnetRedistPath), '', '', SW_SHOW, ewWaitUntilTerminated, ResultCode) then begin
+      Pars := '';
+        if WizardSilent then Pars := '/passive';
+      if Exec(ExpandConstant(dotnetRedistPath), Pars, '', SW_SHOW, ewWaitUntilTerminated, ResultCode) then begin
          // handle success if necessary; ResultCode contains the exit code
          if not (ResultCode = 0) then begin
            Result := false;

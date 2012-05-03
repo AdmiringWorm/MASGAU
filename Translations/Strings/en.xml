@@ -29,11 +29,11 @@
   <string name="Finished">All done</string>
   <string name="Backup">Backup</string>
   <string name="Open">Open</string>
-
   <string name="Game">Game</string>
   <string name="Games">Games</string>
 
   <string name="About">About</string>
+  <string name="Other">Other</string>
   
   <!-- Button stuff (the underlines are for key combos, so choose letters wisely) -->
   <string name="SelectButton">_Select</string>
@@ -58,6 +58,8 @@
   <string name="OtherLocationButton">Other _Location...</string>
   <string name="OtherUserButton">Other _User...</string>
 
+  <string name="ChoiceTitle">You Must Make A Choice</string>
+  <string name="ComboTitle">Choose One</string>
   <!-- Platform names -->	
   <string name="Linux">Linux</string>
   <string name="Windows">Windows</string>
@@ -98,8 +100,8 @@
   <string name="RedetectGamesButton">_Redetect Games</string>
   <string name="BackupNoGamesButton">Back Nothing Up</string>
   <string name="BackupOneGameButton">_Back This Up</string>
-  <string name="BackupMultipleGamesButtonPrefix">_Back These</string> <!-- A number will be inserted between these two-->
-  <string name="BackupMultipleGamesButtonSuffix">Up</string>
+  <string name="BackupMultipleGamesButton">_Back These %0 Up</string> <!-- This is an example of a string that will have a variable inserted 
+                                                                            They take the form of %0, %1, %2, etc.-->
   <string name="BackupAllGamesButton">Back _Everything Up</string>
   <string name="BackupOneGameMenu">Back This Up</string>
   <string name="BackupMultipleGamesMenu">Back These Up</string>
@@ -110,8 +112,24 @@
   <string name="BackupContextBackupNoGames">Back Nothing Up</string>
   <string name="BackupContextPurge">Purge</string>
   <string name="BackupContextEnableBackup">Enable Backup</string>
+
+  
+  <!-- Backup process -->
+  <string name="GamesToBeBackedUpCount">%0 Games To Be Backed Up</string>
+  <string name="BackingUpSingleGame">Backing Up %0</string>
+  <!--  %0: The name of the current game being processed
+        %1: The nth game being processed
+        %2: The total games being processed -->
+  <string name="BackingUpMultipleGames">(%1/%2) Backing Up %0...</string>
+
+  <!-- Manual Archive -->
+  <string name="ManualArchiveTitle">Create Custom Archive</string>
+  <string name="ManualArchiveSource">Where Do You Want To Get Saves From?</string>
+  <string name="ManualArchiveFiles">Which Files Will Go Into The Backup?</string>
   
   <!-- Restore tab -->
+  <string name="ArchiveListHeader">Double-click a backup to restore it</string>
+
   <string name="ArchiveNameColumn">Game</string>
   <string name="ArchiveTypeColumn">Type</string>
   <string name="ArchiveOwnerColumn">Owner</string>
@@ -148,6 +166,7 @@
   <string name="TaskCredentials">User And Password To Run Task As</string>
   
   <!-- About tab-->
+  <string name="Contributors">Contributors</string>
   <string name="Contributor">Contributor</string>
   <string name="Count">Count</string>
   
@@ -256,8 +275,7 @@
   <string name="MonitorNegativeGames">%MonitorTitle% is...WHAT!??!</string>
   <string name="MonitorZeroGames">%MonitorTitle% isn't stalking any games</string>
   <string name="MonitorOneGame">%MonitorTitle% is stalking a single game</string>
-  <string name="MonitorMultipleGamesPrefix">%MonitorTitle% is stalking"</string>
-  <string name="MonitorMultipleGamesSuffix">"games"</string>
+  <string name="MonitorMultipleGames">%MonitorTitle% is stalking %0 games</string>
 
   <!-- Monitor settings window-->
   <string name="MonitorSettingsTitle">%MASGAU% %Monitor% %Settings%</string>
@@ -269,6 +287,10 @@
   <string name="FullBackupOnMonitorStartup">Full Backup On Monitor Startup</string>
 
   <string name="AboutWindowCloseButton">Um...Okay. _Thanks For That.</string>
+
+  <string name="EnableBackup">Enable Backup</string>
+  <string name="EnableSync">Enable Sync</string>
+  
   
   <!-- Analyzer-specific strings -->
   <string name="AnalyzerWindowTitle">Save Game Analyzer</string>
@@ -340,4 +362,40 @@
   <string name="Update">Update</string>
   <string name="Current">Current</string>
   <string name="Latest">Latest</string>
+  
+  
+  <!-- Inner core message strings -->
+  <string name="DetectingSystemPaths">Detecting System Paths...</string>
+  <string name="DetectingSteam">Detecting Steam...</string>
+  <string name="DetectingPlayStation">Detecting PlayStation Paths...</string>
+  <string name="DetectingScummVM">Detecting ScummVM Paths...</string>
+
+  <!-- Program Handler -->
+  <string name="ValidatingBackupPath">Validating Backup Path...</string>
+  <string name="LoadingSettings">Loading Settings...</string>
+
+  <!-- Archive Handler -->
+  <string name="ArchiveInUserWaiting"></string>
+  
+  <!-- Updates handler -->
+  <string name="CheckingForUpdates">Checking for updates...</string>
+
+  <!-- Request Handler -->
+  <string name="NoRequestChoicesTitle">Request Error</string>
+  <string name="NoRequestChoicesMessage">A choice was requested, but no options provided</string>
+
+  
+  <!-- Config handler -->
+  <string name="ConfigFileError">Config File Error</string>
+  <string name="ConfigOpenErrorTitle">%ConfigFileError%</string>
+  <string name="ConfigOpenErrorMessage">Unable to open config file for writing</string>
+  
+  <string name="ConfigXMLErrorTitle">%ConfigFileError%</string>
+  <string name="ConfigXMLErrorMessage">XML Error while reading config file</string>
+
+  <string name="ConfigWatcherErrorTitle">%ConfigFileError%</string>
+  <string name="ConfigWatcherErrorMessage">Error while auto-updating settings</string>
+
+  <string name="ConfigPurgeErrorTitle">%ConfigFileError%</string>
+  <string name="ConfigPurgeErrorMessage">Error while trying to purge config file</string>
 </strings>

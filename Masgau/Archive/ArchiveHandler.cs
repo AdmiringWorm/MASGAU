@@ -10,16 +10,17 @@ using System.Security.AccessControl;
 using MASGAU.Location;
 using MASGAU.Game;
 using MASGAU.Location.Holders;
-using MASGAU.Communication.Progress;
-using MASGAU.Communication.Message;
-using MASGAU.Communication.Request;
+using Communication;
+using Communication.Progress;
+using Communication.Message;
+using Communication.Request;
 
 namespace MASGAU.Archive
 {
     public class ArchiveHandler: AModelItem<ArchiveID>
     {
         #region Archive identification stuff
-
+        private string original_path = null;
         public string title {
             get {
                 GameHandler game = Core.games.all_games.get(this.id.game);
@@ -102,7 +103,7 @@ namespace MASGAU.Archive
                 ready = true;
             } else {
                 ready = false;
-                throw new MException("Archiver Error","7z.exe Not Found In Program Folder.\nYou Will Probably Need To Reinstall.",false);
+                throw new CommunicatableException("Archiver Error","7z.exe Not Found In Program Folder.\nYou Will Probably Need To Reinstall.",false);
             }
             zipper.StartInfo.UseShellExecute = false;
             zipper.StartInfo.RedirectStandardOutput = true;
@@ -122,7 +123,7 @@ namespace MASGAU.Archive
                 }
                 Directory.CreateDirectory(temp_folder);
             } catch(Exception e) {
-                throw new MException("Look Out!","An error occured while trying to prep " + temp_folder, e, false);
+                throw new CommunicatableException("Look Out!","An error occured while trying to prep " + temp_folder, e, false);
             }
         }
         #endregion
@@ -140,7 +141,7 @@ namespace MASGAU.Archive
 
         public ArchiveHandler(FileInfo archive): base() {
             if(!ready)
-                throw new MException("Not Found","This 7-zip executable could not be found. You probably need to re-install.", false);
+                throw new CommunicatableException("Not Found","This 7-zip executable could not be found. You probably need to re-install.", false);
 
             _file_name = archive.FullName;
             String owner = null;
@@ -168,6 +169,9 @@ namespace MASGAU.Archive
                 while (load_me.Read()) {
     			    if(load_me.NodeType==XmlNodeType.Element) {
 				        switch (load_me.Name) {
+                            case "original_path":
+                                this.original_path = load_me.ReadInnerXml();
+                                break;
                             case "game":
                                 while(load_me.MoveToNextAttribute()) {
                                     switch(load_me.Name) {
@@ -208,7 +212,7 @@ namespace MASGAU.Archive
                 load_me.Close();
                 File.Delete(Path.Combine(temp_folder, "masgau.xml"));
             } else {
-                throw new MException("Lack Of Data Is Bad","The file " + file_name + " doesn't contain any MASGAU data.\nThis probably means it's a corrupted archive, or not an archive at all.\nPlease move it out of the backup folder or delete it.",false);
+                throw new CommunicatableException("Lack Of Data Is Bad","The file " + file_name + " doesn't contain any MASGAU data.\nThis probably means it's a corrupted archive, or not an archive at all.\nPlease move it out of the backup folder or delete it.",false);
                 // This is a fallback for really old ASGAU archives - One day I will be able to just delete this.
                 // I'm going to delete this actually
                 // Goodbye, legacy!!!!
@@ -234,10 +238,10 @@ namespace MASGAU.Archive
 
             if(exists) {
                 if(!canWrite(new FileInfo(file_name)))
-                    throw new MException("Gadzooks!","The file " + file_name + " is not writable", false);
+                    throw new CommunicatableException("Gadzooks!","The file " + file_name + " is not writable", false);
             } else {
                 if(!canWrite(new DirectoryInfo(Path.GetDirectoryName(file_name))))
-                    throw new MException("Gadzooks!","The folder " + Path.GetDirectoryName(file_name) + " is not writable", false);
+                    throw new CommunicatableException("Gadzooks!","The folder " + Path.GetDirectoryName(file_name) + " is not writable", false);
 
                 // If this is the first time writing to the archive, we create the identifying XML
                 XmlDocument write_me = new XmlDocument();
@@ -258,9 +262,11 @@ namespace MASGAU.Archive
                 attribute = write_me.CreateAttribute("name");
                 attribute.Value = id.game.name;
                 node.SetAttributeNode(attribute);
+
                 attribute = write_me.CreateAttribute("platform");
                 attribute.Value = id.game.platform.ToString();
                 node.SetAttributeNode(attribute);
+
                 if(id.game.region!=null ) {
                     attribute = write_me.CreateAttribute("region");
                     attribute.Value = id.game.region;
@@ -285,6 +291,12 @@ namespace MASGAU.Archive
                     write_me.DocumentElement.InsertAfter(node, write_me.DocumentElement.LastChild);
                 }
 
+                if(this.original_path!=null) {
+                    node = write_me.CreateElement("original_path");
+                    node.InnerText = this.original_path;
+                    write_me.DocumentElement.InsertAfter(node, write_me.DocumentElement.LastChild);
+                }
+                
                 FileStream this_file = new FileStream(Path.Combine(temp_folder,"masgau.xml"), FileMode.Truncate, FileAccess.Write, FileShare.ReadWrite);
 
                 write_me.Save(this_file);
@@ -356,7 +368,7 @@ namespace MASGAU.Archive
         public bool cancel_restore = false;
         public void restore(DirectoryInfo destination, List<string> only_these) {
             cancel_restore = false;
-            ProgressHandler.progress_message = "Checking Destination...";
+            ProgressHandler.message = "Checking Destination...";
             // The files get extracted to the temp folder, so this sets up our ability to read them
             DirectoryInfo from_here = new DirectoryInfo(temp_folder);
 
@@ -377,24 +389,24 @@ namespace MASGAU.Archive
                         restoreElevation(destination.FullName);
                         cancel_restore = true;
 				    } else {
-                        throw new MException("And that's how it is","Unable to create output folder:" + Environment.NewLine + destination.FullName,false);
+                        throw new CommunicatableException("And that's how it is","Unable to create output folder:" + Environment.NewLine + destination.FullName,false);
 				    }
 				}
 			}
             if(cancel_restore)
                 return;
 
-            ProgressHandler.progress_message = "Extracting Archive...";
-            ProgressHandler.progress_state = ProgressState.Indeterminate;
+            ProgressHandler.message = "Extracting Archive...";
+            ProgressHandler.state = ProgressState.Indeterminate;
             if(only_these==null) {
-                ProgressHandler.progress_max = file_count;
+                ProgressHandler.max = file_count;
                 extract(true);
             } else {
-                ProgressHandler.progress_max = only_these.Count;
+                ProgressHandler.max = only_these.Count;
                 extract(only_these,true);
             }
-            ProgressHandler.progress = 0;
-            ProgressHandler.progress_state = ProgressState.Normal;
+            ProgressHandler.value = 0;
+            ProgressHandler.state = ProgressState.Normal;
 
             // Clean up the masgau archive ID
             if(File.Exists(Path.Combine(temp_folder,"masgau.xml")))
@@ -403,7 +415,7 @@ namespace MASGAU.Archive
             if(cancel_restore)
                 return;
 
-            ProgressHandler.progress_message = "Copying Files To Destination...";
+            ProgressHandler.message = "Copying Files To Destination...";
             if(!canWrite(destination)) {
 	            Directory.Delete(temp_folder, true);
                 restoreElevation(destination.FullName);
@@ -417,7 +429,7 @@ namespace MASGAU.Archive
             if(cancel_restore)
                 return;
 
-            ProgressHandler.progress_state = ProgressState.None;
+            ProgressHandler.state = ProgressState.None;
         }
         private bool restoreElevation(string destination) {
             try {
@@ -433,7 +445,7 @@ namespace MASGAU.Archive
                         return true;
 				    }
 				    catch (Exception e){
-                        throw new MException("People people people get up get up",Core.programs.restore + "can't be found.\nYou probably need to reinstall.",e, false);
+                        throw new CommunicatableException("People people people get up get up",Core.programs.restore + "can't be found.\nYou probably need to reinstall.",e, false);
 				    }
 			    } else {
                     return false;
@@ -475,13 +487,13 @@ namespace MASGAU.Archive
         }
         private void run7z(bool send_progress) {
             if(this.exists) {
-                string status = ProgressHandler.progress_message;
+                string status = ProgressHandler.message;
                 int wait_max = 30;
                 for(int count = 0; !canRead(file_name); count++) {
-                    ProgressHandler.progress_message = status.TrimEnd('.') + " - Archive In Use, Waiting (" + (count+1) + "/" + wait_max + ")";
+                    ProgressHandler.message = status.TrimEnd('.') + " - Archive In Use, Waiting (" + (count+1) + "/" + wait_max + ")";
                     Thread.Sleep(1000);
                     if(count==wait_max-1)
-                        throw new MException("Tired of waiting!","The archive " + file_name + Environment.NewLine + "has been unaccessible for 30 seconds, it will be skipped.",false);
+                        throw new CommunicatableException("Tired of waiting!","The archive " + file_name + Environment.NewLine + "has been unaccessible for 30 seconds, it will be skipped.",false);
                 }
             }
             try {
@@ -490,12 +502,12 @@ namespace MASGAU.Archive
                 while(output != null){
                     if(send_progress) {
                         if(output.StartsWith("Extracting")||output.StartsWith("Compressing"))
-                            ProgressHandler.progress++;
+                            ProgressHandler.value++;
                     }
                     output = zipper.StandardOutput.ReadLine();
                 }
             } catch(Exception e) {
-                throw new MException("Running is for wimps","An error occured while trying to run 7-zip with the arguments:\n" + zipper.StartInfo.Arguments,e, true);
+                throw new CommunicatableException("Running is for wimps","An error occured while trying to run 7-zip with the arguments:\n" + zipper.StartInfo.Arguments,e, true);
             } finally {
                 try {
                     zipper.Close();
@@ -530,7 +542,7 @@ namespace MASGAU.Archive
                                 File.Move(file_name, new_path);
                                 //File.SetCreationTime(temp_file_name,right_now);
                             } catch(Exception ex) {
-                                throw new MException("Versioning is for wusses anyway","An error occured while trying to make a revision copy of " + original_file.FullName, ex,false);
+                                throw new CommunicatableException("Versioning is for wusses anyway","An error occured while trying to make a revision copy of " + original_file.FullName, ex,false);
                             }
                         } else {
                             // This is if it hasn't been long enough for a new file
@@ -633,14 +645,14 @@ namespace MASGAU.Archive
         private void extract(List<string> files, bool send_progress) {
             prepTemp();
             if(send_progress) {
-                ProgressHandler.progress_max = files.Count;
-                ProgressHandler.progress = 0;
+                ProgressHandler.max = files.Count;
+                ProgressHandler.value = 0;
             }
             foreach(string file in files) {
                 zipper.StartInfo.Arguments = extract_switches + " \"" + this.file_name + "\" \"" + file + "\"";
                 run7z(false);
                 if(send_progress)
-                    ProgressHandler.progress++;
+                    ProgressHandler.value++;
             }
         }
         #endregion
@@ -656,20 +668,20 @@ namespace MASGAU.Archive
 	            try {
 		            Directory.CreateDirectory(to_here.FullName);
 				} catch (Exception e) {
-                    throw new MException("My genetics are repressed","Error while creating " + to_here.FullName,e,false);
+                    throw new CommunicatableException("My genetics are repressed","Error while creating " + to_here.FullName,e,false);
 				}
 			}
             foreach(FileInfo copy_me in from_here.GetFiles()) {
                 if(cancel_restore)
                     break;
                 if(send_progress)
-                    ProgressHandler.progress++;
+                    ProgressHandler.value++;
 				try {
 					File.Copy(copy_me.FullName,Path.Combine(to_here.FullName,copy_me.Name),true);
                     if ((File.GetAttributes(Path.Combine(to_here.FullName,copy_me.Name)) & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
                         File.SetAttributes(Path.Combine(to_here.FullName,copy_me.Name), FileAttributes.Normal);
 				} catch (Exception e) {
-                    throw new MException("We started this Op'ra","Error while copying " + copy_me.FullName + "\nto " + to_here.FullName, e, false);
+                    throw new CommunicatableException("We started this Op'ra","Error while copying " + copy_me.FullName + "\nto " + to_here.FullName, e, false);
 				}
             }
             foreach(DirectoryInfo check_me in from_here.GetDirectories()) {

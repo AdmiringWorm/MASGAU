@@ -5,13 +5,18 @@ using System.Text;
 using System.IO;
 using System.ComponentModel;
 using MASGAU.Location.Holders;
-using MASGAU.Communication.Progress;
+using Communication;
+using Communication.Progress;
 
 namespace MASGAU.Location
 {
     public abstract class ALocationsHandler: ILocationsHandler 
     {
         
+        public ALocationHandler getHandler(HandlerType type) {
+            return handlers[type];
+        }
+
         public string getFolder(EnvironmentVariable ev, string path){
             LocationPathHolder parse_me = new LocationPathHolder();
             parse_me.path = path;
@@ -31,22 +36,27 @@ namespace MASGAU.Location
         protected ALocationsHandler() {
             handlers = new Dictionary<HandlerType,ALocationHandler>();
 
-            ProgressHandler.progress_message = "Detecting System Paths...";
+            ProgressHandler.setTranslatedMessage("DetectingSystemPaths");
             ASystemLocationHandler system_handler = this.setupSystemHandler();
             handlers.Add(HandlerType.System, system_handler);
 
-            ProgressHandler.progress_message = "Checking For Steam...";
+            ProgressHandler.setTranslatedMessage("DetectingSteam");
             ASteamLocationHandler steam_handler = this.setupSteamHandler();
             handlers.Add(HandlerType.Steam, steam_handler);
 
-            ProgressHandler.progress_message = "Detecting PlayStation Paths...";
+            ProgressHandler.setTranslatedMessage("DetectingPlayStation");
             APlaystationLocationHandler playstation_handler = this.setupPlaystationHandler();
             handlers.Add(HandlerType.PlayStation, playstation_handler);
+
+            ProgressHandler.setTranslatedMessage("DetectingScummVM");
+            AScummVMLocationHandler scummvm_handler = this.setupScummVMHandler();
+            handlers.Add(HandlerType.ScummVM, scummvm_handler);
         }
 
         protected abstract APlaystationLocationHandler setupPlaystationHandler();
         protected abstract ASteamLocationHandler setupSteamHandler();
         protected abstract ASystemLocationHandler setupSystemHandler();
+        protected abstract AScummVMLocationHandler setupScummVMHandler();
 
         protected void addNewHandler(ALocationHandler handler) {
             handlers.Add(handler.type, handler);
@@ -142,7 +152,7 @@ namespace MASGAU.Location
         }
 
         protected static string correctPath(string correct_me) {
-            string[] sections = correct_me.Split(Path.DirectorySeparatorChar);
+            string[] sections = correct_me.TrimEnd(Path.DirectorySeparatorChar).Split(Path.DirectorySeparatorChar);
             DirectoryInfo dir = new DirectoryInfo(sections[0] + Path.DirectorySeparatorChar);
             for(int i = 1;i<sections.Length;i++) {
                 DirectoryInfo[] sub_dir = dir.GetDirectories(sections[i]);

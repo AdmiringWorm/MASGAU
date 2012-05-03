@@ -9,9 +9,10 @@ using MASGAU.Game;
 using MASGAU.Location;
 using MASGAU.Location.Holders;
 using MASGAU.Archive;
-using MASGAU.Communication.Message;
-using MASGAU.Communication.Progress;
-using MASGAU.Collections;
+using Communication;
+using Communication.Message;
+using Communication.Progress;
+using Collections;
 
 namespace MASGAU.Backup
 {
@@ -78,9 +79,9 @@ namespace MASGAU.Backup
                 }
 
                 if (games.Count> 0) {
-                    ProgressHandler.progress = 1;
-                    ProgressHandler.progress_max = games.Count;
-                    ProgressHandler.progress_message = games.Count + " Games To Be Backed Up";
+                    ProgressHandler.value = 1;
+                    ProgressHandler.max = games.Count;
+                    ProgressHandler.setTranslatedMessage("GamesToBeBackedUpCount", games.Count.ToString());
 
 
                     foreach(GameHandler game in games) {
@@ -91,9 +92,9 @@ namespace MASGAU.Backup
                             //all_users_archive = new ArchiveHandler(new FileInfo(archive_name_override),game.id);
 
                         if(games.Count==1) {
-                            ProgressHandler.progress_message = "Backing up " + game.title;
+                            ProgressHandler.setTranslatedMessage("BackingUpSingleGame", game.title);
                         } else {
-                            ProgressHandler.progress_message = "(" + ProgressHandler.progress.ToString() + "/" + games.Count + ") Backing up " + game.title + "...";
+                            ProgressHandler.setTranslatedMessage("BackingUpMultipleGames", ProgressHandler.value.ToString(),games.Count.ToString(), game.title);
                         }
 
                         List<DetectedFile> files;
@@ -146,7 +147,7 @@ namespace MASGAU.Backup
                         } catch (Exception ex) {
                             MessageHandler.SendException(ex);
                         } finally {
-                            ProgressHandler.progress++;
+                            ProgressHandler.value++;
                         }
                     }
                 } else {

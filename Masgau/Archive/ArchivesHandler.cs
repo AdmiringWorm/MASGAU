@@ -6,8 +6,9 @@ using System.IO;
 using System.ComponentModel;
 using MASGAU.Location;
 using MASGAU.Game;
-using MASGAU.Communication.Progress;
-using MASGAU.Communication.Message;
+using Communication;
+using Communication.Progress;
+using Communication.Message;
 
 namespace MASGAU.Archive
 {
@@ -33,17 +34,17 @@ namespace MASGAU.Archive
             this.Clear();
             if(!Core.settings.backup_path_set)
                 return;
-            ProgressHandler.progress_state = ProgressState.Normal;
+            ProgressHandler.state = ProgressState.Normal;
             string path = null;
             path = Core.settings.backup_path;
             FileInfo[] read_us = new DirectoryInfo(path).GetFiles("*.gb7");
 
-            ProgressHandler.progress = 0;
+            ProgressHandler.value = 0;
             if(read_us.Length>0) {
-                ProgressHandler.progress_max = read_us.Length;
+                ProgressHandler.max = read_us.Length;
                 foreach(FileInfo read_me in read_us) {
-                    ProgressHandler.progress++;
-                    ProgressHandler.progress_message = "Scanning Backups (" + ProgressHandler.progress + "/" + read_us.Length + ")";
+                    ProgressHandler.value++;
+                    ProgressHandler.message = "Scanning Backups (" + ProgressHandler.value + "/" + read_us.Length + ")";
                             
                     try {
                         ArchiveHandler add_me = new ArchiveHandler(read_me);
@@ -57,8 +58,8 @@ namespace MASGAU.Archive
                 }
             }
 
-            ProgressHandler.progress_state = ProgressState.None;
-            ProgressHandler.progress = 0;
+            ProgressHandler.state = ProgressState.None;
+            ProgressHandler.value = 0;
         }
 
 
